@@ -1,0 +1,6 @@
+{
+  "name": "Gojek Super App Simulator",
+  "description": "Simulasi aplikasi super Gojek lengkap dengan fitur Booking, Tracking Perjalanan Real-time, Chat dengan Driver (didukung AI Gemini), dan Rating/Review.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
