@@ -9,13 +9,13 @@ import ChatScreen from "./components/ChatScreen";
 import RatingReviewModals from "./components/RatingReviewModals";
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState<AppScreen>(AppScreen.HOME);
-  const [username, setUsername] = useState("Pengguna");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentScreen, setCurrentScreen] = useState<AppScreen>(AppScreen.DASHBOARD);
+  const [username, setUsername] = useState("Intan Ndolu");
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   
   // Wallet states
-  const [gopayBalance, setGopayBalance] = useState(50000);
-  const [coinsBalance, setCoinsBalance] = useState(300);
+  const [gopayBalance, setGopayBalance] = useState(14900);
+  const [coinsBalance, setCoinsBalance] = useState(400);
 
   // Active Booking details
   const [activeBooking, setActiveBooking] = useState<BookingDetails | null>(null);

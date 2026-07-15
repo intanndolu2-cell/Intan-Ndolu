@@ -50,32 +50,31 @@ export default function DashboardScreen({
   };
 
   const services = [
-    { id: "goride" as ServiceType, name: "GoRide", badge: "5RB", color: "bg-emerald-50 text-emerald-600", desc: "Motor" },
-    { id: "gocar" as ServiceType, name: "GoCar", badge: "6RB", color: "bg-green-50 text-green-700", desc: "Mobil" },
-    { id: "gofood" as ServiceType, name: "GoFood", badge: "-75%", color: "bg-red-50 text-red-600", desc: "Kuliner" },
-    { id: "gosend" as ServiceType, name: "GoSend", badge: "5RB", color: "bg-emerald-100 text-emerald-800", desc: "Paket" },
-    { id: "gomart" as ServiceType, name: "GoMart", badge: "-60%", color: "bg-red-100 text-red-700", desc: "Belanja" },
-    { id: "gotagihan" as ServiceType, name: "GoTagihan", badge: null, color: "bg-blue-50 text-blue-600", desc: "Bayar Tagihan" },
-    { id: "gofood_sehat" as ServiceType, name: "GoFood Sehat", badge: "-50%", color: "bg-emerald-50 text-emerald-600", desc: "Menu Sehat" },
-    { id: "more" as ServiceType, name: "Lainnya", badge: null, color: "bg-gray-100 text-gray-600", desc: "Semua Fitur" }
+    { id: "goride" as ServiceType, name: "GoRide", badge: "5RB", color: "bg-[#e2f7ef] text-emerald-600", desc: "Motor" },
+    { id: "gocar" as ServiceType, name: "GoCar", badge: "6RB", color: "bg-[#e0f2f1] text-teal-700", desc: "Mobil" },
+    { id: "gofood" as ServiceType, name: "GoFood", badge: "-75%", color: "bg-[#ffebee] text-red-600", desc: "Kuliner" },
+    { id: "gosend" as ServiceType, name: "GoSend", badge: "5RB", color: "bg-[#fff3e0] text-amber-700", desc: "Paket" },
+    { id: "gomart" as ServiceType, name: "GoMart", badge: "-60%", color: "bg-[#ffebee] text-red-700", desc: "Belanja" },
+    { id: "gotagihan" as ServiceType, name: "GoTagihan", badge: null, color: "bg-[#e8eaf6] text-blue-600", desc: "Bayar Tagihan" },
+    { id: "gofood_sehat" as ServiceType, name: "GoFood Sehat", badge: "-50%", color: "bg-[#e2f7ef] text-emerald-600", desc: "Menu Sehat" },
+    { id: "more" as ServiceType, name: "Lainnya", badge: null, color: "bg-[#f5f5f5] text-gray-600", desc: "Semua Fitur" }
   ];
 
   return (
     <div id="dashboard_screen_container" className="relative flex flex-col justify-between h-full bg-slate-50 overflow-y-auto rounded-[40px] shadow-2xl max-w-md mx-auto border-8 border-gray-900 aspect-[9/19]">
       
       {/* Top Banner & Search Section */}
-      <div className="relative bg-gradient-to-b from-gojek to-emerald-500 rounded-b-[36px] pt-10 pb-20 px-5 shadow-lg">
+      <div className="relative bg-gradient-to-b from-[#00aa13] to-[#009210] rounded-b-[36px] pt-12 pb-24 px-5 shadow-lg">
         {/* Search Bar + Profile */}
         <div className="flex items-center gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input
               id="search_service_input"
               type="text"
-              placeholder="Cari layanan, makanan, alamat..."
+              placeholder="‹ Cari layanan, makanan, alamat..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white pl-11 pr-4 py-3 rounded-full text-sm outline-none shadow-md text-gray-800 focus:ring-2 focus:ring-emerald-300 transition-all"
+              className="w-full bg-[#f1f5f9]/90 hover:bg-white focus:bg-white pl-4 pr-4 py-3 rounded-full text-xs outline-none shadow-md text-gray-800 transition-all placeholder-gray-500 font-semibold"
             />
           </div>
           
@@ -83,9 +82,9 @@ export default function DashboardScreen({
             <button
               id="btn_dashboard_profile"
               onClick={() => setShowProfileMenu(!showProfileMenu)}
-              className="p-2.5 bg-white/25 backdrop-blur-md hover:bg-white/30 text-white rounded-full transition-all cursor-pointer relative"
+              className="p-3 bg-[#00aa13] border border-emerald-400 hover:bg-[#009210] text-white rounded-full transition-all cursor-pointer relative shadow-md flex items-center justify-center w-10 h-10"
             >
-              <User className="w-5 h-5" />
+              <User className="w-5 h-5 text-white" />
             </button>
 
             {/* Profile Dropdown */}
@@ -93,21 +92,22 @@ export default function DashboardScreen({
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl py-2 z-50 border border-gray-100"
+                className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl py-3.5 z-50 border border-gray-100 text-left"
               >
-                <div className="px-4 py-2 border-b border-gray-100">
-                  <p className="text-xs text-gray-400">Masuk sebagai</p>
-                  <p className="font-semibold text-gray-800 truncate">{username}</p>
+                <div className="px-4 pb-2">
+                  <p className="text-[10px] text-gray-400 font-semibold">Masuk sebagai</p>
+                  <p className="font-extrabold text-sm text-gray-800 truncate mt-0.5">{username}</p>
                 </div>
+                <div className="border-t border-gray-100 my-1.5"></div>
                 <button
                   id="btn_profile_logout"
                   onClick={() => {
                     setShowProfileMenu(false);
                     onLogout();
                   }}
-                  className="w-full px-4 py-2.5 text-left text-sm text-red-600 hover:bg-red-50 flex items-center gap-2 cursor-pointer transition-colors"
+                  className="w-full px-4 py-2 text-left text-xs font-bold text-red-600 hover:bg-red-50 flex items-center gap-2 cursor-pointer transition-colors"
                 >
-                  <LogOut className="w-4 h-4" /> Keluar Akun
+                  <LogOut className="w-4 h-4 text-red-500" /> Keluar Akun
                 </button>
               </motion.div>
             )}
@@ -229,15 +229,7 @@ export default function DashboardScreen({
               )}
 
               {/* Service Icon Representational Graphics */}
-              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm border border-gray-100 transition-all group-hover:shadow ${
-                svc.id === "goride" ? "bg-emerald-100" :
-                svc.id === "gocar" ? "bg-green-100" :
-                svc.id === "gofood" ? "bg-red-50" :
-                svc.id === "gosend" ? "bg-orange-50" :
-                svc.id === "gomart" ? "bg-amber-50" :
-                svc.id === "gotagihan" ? "bg-blue-50" :
-                svc.id === "gofood_sehat" ? "bg-emerald-50" : "bg-gray-100"
-              }`}>
+              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm border border-gray-100 transition-all group-hover:shadow ${svc.color}`}>
                 {svc.id === "goride" && (
                   <span className="text-xl">🛵</span>
                 )}
@@ -260,7 +252,7 @@ export default function DashboardScreen({
                   <span className="text-xl">🥗</span>
                 )}
                 {svc.id === "more" && (
-                  <span className="text-xl">▫️◽▫️</span>
+                  <MoreHorizontal className="w-5 h-5 text-gray-500" />
                 )}
               </div>
 
